@@ -1,10 +1,10 @@
-
-import React, { useState, useEffect } from 'react';
+ import React, { useState, useEffect } from 'react';
 
 function Eye({ mousePosition }) {
   const [eyePosition, setEyePosition] = useState({ x: '50%', y: '50%' });
 
   useEffect(() => {
+    // Calculate the movement based on mouse position.
     const eyeX = (mousePosition.x - window.innerWidth / 2) / window.innerWidth * 100;
     const eyeY = (mousePosition.y - window.innerHeight / 2) / window.innerHeight * 100;
     setEyePosition({ x: `${50 + eyeX}%`, y: `${50 + eyeY}%` });
@@ -12,12 +12,15 @@ function Eye({ mousePosition }) {
 
   return (
     <div className='flex items-center justify-center w-[15vw] h-[15vw] rounded-full bg-zinc-100'>
+      {/* Outer eye circle (stationary) */}
       <div
         className='w-2/3 h-2/3 flex items-center justify-center rounded-full bg-zinc-900'
-        style={{ transform: `translate(${eyePosition.x}, ${eyePosition.y})` }}
       >
-        <div className="line w-full h-10"></div>
-        <div className='w-10 h-10 rounded-full bg-zinc-100'></div>
+        {/* Small circle (pupil) that moves with mouse position */}
+        <div
+          className='w-10 h-10 rounded-full bg-zinc-100'
+          style={{ transform: `translate(${eyePosition.x}, ${eyePosition.y})` }}
+        ></div>
       </div>
     </div>
   );
@@ -40,7 +43,7 @@ function Eyes() {
 
   return (
     <div className='eyes w-full h-screen overflow-hidden'>
-      <div className='relative w-full h-full bg-cover bg-center bg-[url("https://ochi.design/wp-content/uploads/2022/05/Top-Viewbbcbv-1-scaled.jpg")]'>
+      <div data-scroll-speed="-.7" className='relative w-full h-full bg-cover bg-center bg-[url("https://ochi.design/wp-content/uploads/2022/05/Top-Viewbbcbv-1-scaled.jpg")]'>
         <div className='absolute flex gap-10 top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] bg-cover bg-center'>
           <Eye mousePosition={mousePosition} /> {/* First eye */}
           <Eye mousePosition={mousePosition} /> {/* Second eye */}

@@ -7,12 +7,14 @@ function About() {
            <div className="w-full flex gap-5 border-t-[1px] pt-10 mt-20 border-[#a1b562]">
             <div></div>
             <div className="w-1/2">
-               <h1 classNamer="text-7xl"> Our approach:</h1>
+               <h1 classNamer="text-10xl font-bold"> Our approach:</h1>
                <button className="flex uppercase gap-10 items-center px-10 py-6 bg-zinc-900 mt-10 rounded-full text-white">Read More
                 <div className="w-2 h-2 bg-zinc-100 rounded-full"></div>
                </button>
             </div>
-            <div className="w-1/2 h-[70vh] rounded-3xl bg-[#b0c859]"></div>
+            <div className="w-1/2 h-[70vh] rounded-3xl bg-[#CDEA68]">
+            <img className='w-full' src="https://ochi.design/wp-content/uploads/2022/05/Homepage-Photo-663x469.jpg"></img>
+            </div>
            </div>
     </div>
   )
